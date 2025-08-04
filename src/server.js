@@ -1,33 +1,17 @@
-const express = require('express'); //commonjs
-const path = require('path');
 require('dotenv').config();
-// import express from 'express' //es modules
-
-// console.log(process.env);
+const express = require('express'); //commonjs
+const configViewEngine = require('./config/viewEngine');
+const webRoutes = require('./routes/web')
 
 const app = express(); // app express
 const port = process.env.PORT || 3001; // port => hardcode
 const hostname = process.env.HOST_NAME;
 
 //config template engine
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+configViewEngine(app)
 
-//config static files
-app.use(express.static(path.join(__dirname, 'public')))
-
-// Khai báo route
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.get('/abc', (req, res) => {
-  res.send('check abc')
-})
-
-app.get('/duyphan', (req, res) => {
-  res.render('sample.ejs')
-})
+//Khai báo route
+app.use('/', webRoutes)
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`)
