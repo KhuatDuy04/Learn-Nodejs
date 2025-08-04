@@ -1,0 +1,28 @@
+{
+  "name": "full-backend-zero",
+  "version": "1.0.0",
+  "description": "Nodejs Backend",
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "homepage": "https://github.com/KhuatDuy04/Learn-Nodejs#readme",
+  "bugs": {
+    "url": "https://github.com/KhuatDuy04/Learn-Nodejs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhuatDuy04/Learn-Nodejs.git"
+  },
+  "license": "ISC",
+  "author": "KhuatDuy",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
