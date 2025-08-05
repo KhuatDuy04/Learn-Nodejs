@@ -4,6 +4,18 @@ const getAllUsers = async () => {
     return results;
 }
 
+const getUserById = async (userId) => {
+    let [results, fields] = await pool.query(`select * from Persons where id = ?`, [userId])
+    let user = results && results.length > 0 ? results[0] : {}
+    return user;
+}
+
+const updateUserById = async (email, name, city, id) => {
+    let [results, fields] = await pool.query(
+        `UPDATE Persons SET email = ?, name = ?, city = ? WHERE id = ?`, [email, name, city, id]
+    );
+}
+
 module.exports = {
-    getAllUsers
+    getAllUsers, getUserById, updateUserById
 }

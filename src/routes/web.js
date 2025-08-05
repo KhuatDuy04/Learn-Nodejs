@@ -1,5 +1,5 @@
 const express = require('express');
-const { getHomepage, getABC, getDuyPhan, postCreateUser, getCreatePage, getUpdatePage} = require('../controllers/homeController')
+const { getHomepage, getABC, getDuyPhan, postCreateUser, getCreatePage, getUpdatePage, postUpdateUser} = require('../controllers/homeController')
 const router = express.Router();
 
 // Khai báo route
@@ -16,6 +16,7 @@ router.get('/duyphan', (req, res) => {
 router.get('/create', getCreatePage)
 router.post('/create-user', postCreateUser)
 
-router.get('/update', getUpdatePage)
+router.get('/update/:id', getUpdatePage)
+router.post('/update-user', postUpdateUser)
 
 module.exports = router //export default
