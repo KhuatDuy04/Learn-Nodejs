@@ -47,7 +47,9 @@
                         <td><%= listUsers.city%></td>
                         <td>
                             <a href="/update/<%= listUsers.id%>" class="btn btn-warning">Edit</a>
-                            <button class="btn btn-danger">Delete</button>
+                            <form action="/delete-user/<%= listUsers.id %>" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xóa người dùng này không?');">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 <% }); %>
